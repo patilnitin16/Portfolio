@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 import "./Contact.css";
 import contact from "../../assets/contact.jpg";
 
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, form.current, {
+        publicKey: import.meta.env.VITE_PUBLIC_KEY,
+      })
+      .then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
+  };
+
   return (
     <div className="bg-[#f7f6f4] mt-[50px] pb-[100px]">
       <div className="max-w-[1400px]  mx-auto">
@@ -11,7 +31,11 @@ const Contact = () => {
           <div className="img">
             <img className="h-[500px] w-[500px]" src={contact} alt="" />
           </div>
-          <form className="form flex flex-col gap-[50px]">
+          <form
+            ref={form}
+            onSubmit={sendEmail}
+            className="form flex flex-col gap-[50px]"
+          >
             <div className="inputs flex items-center justify-between gap-[30px] ">
               <label className="text-xl font-bold" htmlFor="Name">
                 Name :{" "}
@@ -19,6 +43,7 @@ const Contact = () => {
               <input
                 className="outline-1 w-[300px] h-[40px] rounded-2xl px-[10px] py-[5px] text-lg"
                 type="text"
+                name="your_name"
               />
             </div>
             <div className="inputs flex items-center justify-between gap-[30px]">
@@ -27,7 +52,8 @@ const Contact = () => {
               </label>
               <input
                 className="outline-1 w-[300px] h-[40px] rounded-2xl px-[10px] py-[5px] text-lg"
-                type="emai"
+                type="email"
+                name="your_email"
               />
             </div>
             <div className="inputs flex items-center justify-between gap-[30px]">
@@ -49,7 +75,12 @@ const Contact = () => {
                 cols="50"
               ></textarea>
             </div>
-            <button className="text-center p-[5px] font-bold text-xl cursor-pointer bg-red-400 text-white rounded-2xl w-[100%]">Contact</button>
+            <button
+              type="submit"
+              className="text-center p-[5px] font-bold text-xl cursor-pointer bg-red-400 text-white rounded-2xl w-[100%]"
+            >
+              Contact
+            </button>
           </form>
         </div>
       </div>
