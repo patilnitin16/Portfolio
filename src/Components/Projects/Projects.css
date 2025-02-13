@@ -1,0 +1,18 @@
+@media (max-width: 950px) {
+  .head {
+    margin-bottom: 50px;
+  }
+
+  img {
+    width: 400px;
+  }
+  .project-boxes {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 463px) {
+  h2 {
+    font-size: 20px;
+  }
+}

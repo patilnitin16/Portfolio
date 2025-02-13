@@ -1,0 +1,22 @@
+@media (max-width: 950px) {
+  .main-nav {
+    flex-direction: column;
+    padding: 5px;
+  }
+  .logo {
+    font-size: 35px;
+  }
+}
+@media (max-width: 700px) {
+  .navbar .nav-ul .nav-li {
+    font-size: 13px;
+  }
+  .nav-btn {
+    display: none;
+  }
+}
+@media (max-width: 490px) {
+  .navbar .nav-ul {
+    gap: 40px;
+  }
+}

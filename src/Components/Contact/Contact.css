@@ -1,0 +1,29 @@
+@media (max-width: 905px) {
+  .img {
+    display: none;
+  }
+}
+@media (max-width: 950px) {
+  h2 {
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 450px) {
+  input {
+    width: 200px;
+  }
+  .inputs {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+  }
+  .form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .txt-area {
+    width: 100%;
+  }
+}

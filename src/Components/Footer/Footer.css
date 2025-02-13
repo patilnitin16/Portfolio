@@ -1,0 +1,10 @@
+@media (max-width: 453px) {
+  .links {
+    gap: 17px;
+    font-size: 25px;
+  }
+  .p {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
